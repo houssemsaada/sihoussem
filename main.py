@@ -7,7 +7,7 @@ UDP_IP = "192.168.162.125"
 UDP_PORT = 5015
 index = 0
 index1 = 0
-#slaemou 3alaykom
+
 
 class beacon:
     url: str
