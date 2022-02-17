@@ -22,7 +22,7 @@ class beacon:
         self.ip = data['IP']
 
     def __repr__(self):
-        return (f' URL={self.url}            rssi= {self.rssi} mac={self.mac} ip={self.ip}')
+        return (f' URL={self.url}            rssi= {self.rssi} mac={self.mac} ip={self.ip} time={self.time}')
 
 
 sock = socket.socket(socket.AF_INET,  # Internet
@@ -31,17 +31,12 @@ sock.bind((UDP_IP, UDP_PORT))
 
 while True:
     data, addr = sock.recvfrom(1024)  # buffer size is 1024 bytes
-    # print("Type:", type(data))
-    # print("received message: %s" % data)
     try:
         datadict = json.loads(data.decode())
         beac = beacon(datadict)
-        # print(beac)
-        print(beac.url)
-        print(beac.rssi)
-        print(beac.mac)
-        print(beac.time)
-        print(beac.ip)
+
+        print(beac)
+
     except:
         print('exception:', data.decode())
 
